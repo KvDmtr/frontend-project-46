@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 const padLine = (depth) => `  ${' '.repeat(4).repeat(depth - 1)}`;
 const padBracket = (depth) => `${' '.repeat(4).repeat(depth)}`;
 const getLine = (key, value, char, depth) => `${padLine(depth)}${char}${key}: ${value}`;
