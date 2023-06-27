@@ -4,6 +4,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/chekout@v2
+      - uses: actions/checkout@v2
       - run: npm install
       - run: make lint
