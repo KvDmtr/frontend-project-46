@@ -1,4 +1,4 @@
-name: Test coverage
+name: CI
 on: push
 jobs:
   build:
