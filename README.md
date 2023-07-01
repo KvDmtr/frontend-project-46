@@ -10,4 +10,6 @@
 
 [![Linter](https://github.com/KvDmtr/frontend-project-46/actions/workflows/linter.yml/badge.svg)](https://github.com/KvDmtr/frontend-project-46/actions/workflows/linter.yml)
 
+[![CI](https://github.com/KvDmtr/frontend-project-46/actions/workflows/main.yaml/badge.svg)](https://github.com/KvDmtr/frontend-project-46/actions/workflows/main.yaml)
+
 [![asciicast](https://asciinema.org/a/zGx0NO5M5hroQXxAB0BUv4Cte.svg)](https://asciinema.org/a/zGx0NO5M5hroQXxAB0BUv4Cte)
