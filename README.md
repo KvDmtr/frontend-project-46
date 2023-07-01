@@ -13,3 +13,5 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f0067ad9209f179da9e2/test_coverage)](https://codeclimate.com/github/KvDmtr/frontend-project-46/test_coverage)
 
 [![asciicast](https://asciinema.org/a/zGx0NO5M5hroQXxAB0BUv4Cte.svg)](https://asciinema.org/a/zGx0NO5M5hroQXxAB0BUv4Cte)
+
+[![asciicast](https://asciinema.org/a/w8hUsGInZDXCOMOuMUja08HYw.svg)](https://asciinema.org/a/w8hUsGInZDXCOMOuMUja08HYw)
