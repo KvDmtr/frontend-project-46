@@ -10,6 +10,6 @@
 
 [![Linter](https://github.com/KvDmtr/frontend-project-46/actions/workflows/linter.yml/badge.svg)](https://github.com/KvDmtr/frontend-project-46/actions/workflows/linter.yml)
 
-[![CI](https://github.com/KvDmtr/frontend-project-46/actions/workflows/main.yaml/badge.svg)](https://github.com/KvDmtr/frontend-project-46/actions/workflows/main.yaml)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f0067ad9209f179da9e2/test_coverage)](https://codeclimate.com/github/KvDmtr/frontend-project-46/test_coverage)
 
 [![asciicast](https://asciinema.org/a/zGx0NO5M5hroQXxAB0BUv4Cte.svg)](https://asciinema.org/a/zGx0NO5M5hroQXxAB0BUv4Cte)
