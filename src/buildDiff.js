@@ -14,6 +14,9 @@ const buildDiff = (data1, data2) => {
     if (data1[key] === data2[key]) {
       return { key, value: data1[key], state: 'unchanged' };
     }
+    if (_.isObject(data1[key]) && _.isObject(data2[key])) {
+      return { key, value: buildDiff(data1[key], data2[key]), state: 'nested' };
+    }
     return { key, value: { oldValue: data1[key], newValue: data2[key] }, state: 'updated' };
   });
 
