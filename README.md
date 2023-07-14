@@ -19,3 +19,7 @@
 #### Json
 
 [![asciicast](https://asciinema.org/a/1y7lAIukMupBthYK3QWQ2gIko.svg)](https://asciinema.org/a/1y7lAIukMupBthYK3QWQ2gIko)
+
+#### Format plain
+
+[![asciicast](https://asciinema.org/a/Z8pLvvjjwI8gPlOcXuBCZ1zGi.svg)](https://asciinema.org/a/Z8pLvvjjwI8gPlOcXuBCZ1zGi)
