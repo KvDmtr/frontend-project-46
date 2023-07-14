@@ -16,10 +16,14 @@
 
 [![asciicast](https://asciinema.org/a/w8hUsGInZDXCOMOuMUja08HYw.svg)](https://asciinema.org/a/w8hUsGInZDXCOMOuMUja08HYw)
 
-#### Json
+### Json
 
 [![asciicast](https://asciinema.org/a/1y7lAIukMupBthYK3QWQ2gIko.svg)](https://asciinema.org/a/1y7lAIukMupBthYK3QWQ2gIko)
 
-#### Format plain
+#### Json formatter
+
+[![asciicast](https://asciinema.org/a/p89bqIojfPLGsOxnEg8YMBEKh.svg)](https://asciinema.org/a/p89bqIojfPLGsOxnEg8YMBEKh)
+
+### Format plain
 
 [![asciicast](https://asciinema.org/a/Z8pLvvjjwI8gPlOcXuBCZ1zGi.svg)](https://asciinema.org/a/Z8pLvvjjwI8gPlOcXuBCZ1zGi)
