@@ -6,7 +6,7 @@ const getLine = (key, value, char, depth) => `${padLine(depth)}${char}${key}: ${
 const wrapBrackets = (body, depth) => `{\n${body}\n${padBracket(depth)}}`;
 
 const prepareValue = (value, depth) => {
-  if (!_.isObject(value)) {
+  if (!_.isPlainObject(value)) {
     return value;
   }
   const entrise = Object.entries(value);
@@ -16,16 +16,33 @@ const prepareValue = (value, depth) => {
 };
 
 const parseDiff = (diff, depth) => {
-  const items = diff.flatMap(({ key, value, state }) => {
+  const items = diff.flatMap(({
+    key,
+    value,
+    children,
+    type,
+  }) => {
     const chars = { added: '+ ', removed: '- ', unchanged: '  ' };
-    if (state === 'updated') {
-      return [getLine(key, prepareValue(value.oldValue, depth + 1), chars.removed, depth + 1),
-        getLine(key, prepareValue(value.newValue, depth + 1), chars.added, depth + 1)];
+    switch (type) {
+      case 'updated':
+        return [getLine(key, prepareValue(value.oldValue, depth + 1), chars.removed, depth + 1),
+          getLine(key, prepareValue(value.newValue, depth + 1), chars.added, depth + 1)];
+
+      case 'nested':
+        return getLine(key, parseDiff(children, depth + 1), '  ', depth + 1);
+
+      case 'unchanged':
+        return getLine(key, prepareValue(value, depth + 1), chars[type], depth + 1);
+
+      case 'added':
+        return getLine(key, prepareValue(value, depth + 1), chars[type], depth + 1);
+
+      case 'removed':
+        return getLine(key, prepareValue(value, depth + 1), chars[type], depth + 1);
+
+      default:
+        throw new Error(`Unknown type: '${type}'!`);
     }
-    if (state === 'nested') {
-      return getLine(key, parseDiff(value, depth + 1), '  ', depth + 1);
-    }
-    return getLine(key, prepareValue(value, depth + 1), chars[state], depth + 1);
   });
   const body = items.join('\n');
   return wrapBrackets(body, depth);

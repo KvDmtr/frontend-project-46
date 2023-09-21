@@ -6,18 +6,18 @@ const buildDiff = (data1, data2) => {
   const keys = _.sortBy(_.union(keys1, keys2));
   const diff = keys.flatMap((key) => {
     if (!_.has(data1, key)) {
-      return { key, value: data2[key], state: 'added' };
+      return { key, value: data2[key], type: 'added' };
     }
     if (!_.has(data2, key)) {
-      return { key, value: data1[key], state: 'removed' };
+      return { key, value: data1[key], type: 'removed' };
     }
-    if (data1[key] === data2[key]) {
-      return { key, value: data1[key], state: 'unchanged' };
+    if (_.isEqual(data1[key], data2[key])) {
+      return { key, value: data1[key], type: 'unchanged' };
     }
-    if (_.isObject(data1[key]) && _.isObject(data2[key])) {
-      return { key, value: buildDiff(data1[key], data2[key]), state: 'nested' };
+    if (_.isPlainObject(data1[key]) && _.isPlainObject(data2[key])) {
+      return { key, children: buildDiff(data1[key], data2[key]), type: 'nested' };
     }
-    return { key, value: { oldValue: data1[key], newValue: data2[key] }, state: 'updated' };
+    return { key, value: { oldValue: data1[key], newValue: data2[key] }, type: 'updated' };
   });
 
   return diff;

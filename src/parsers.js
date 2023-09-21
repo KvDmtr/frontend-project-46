@@ -1,7 +1,11 @@
 import yaml from 'js-yaml';
 
 const parse = (data, format) => {
-  const parsers = { yml: yaml.load, yaml: yaml.load, json: JSON.parse };
+  const parsers = {
+    yml: yaml.load,
+    yaml: yaml.load,
+    json: JSON.parse,
+  };
   return parsers[format](data);
 };
 
