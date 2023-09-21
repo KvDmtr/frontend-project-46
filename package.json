@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "A difference generator is a program that determines the difference between two data structures",
+  "description": "[![Actions Status](https://github.com/KvDmtr/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/KvDmtr/frontend-project-46/actions) A difference generator is a program that determines the difference between two data structures",
   "type": "module",
   "main": "./index.js",
   
