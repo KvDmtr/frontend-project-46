@@ -1,3 +1,3 @@
-import parser from './src/index.js';
+import genDiff from './src/index.js';
 
-export default parser;
+export default genDiff;

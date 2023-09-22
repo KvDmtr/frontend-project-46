@@ -19,26 +19,26 @@ const formatPlain = (diff, path = []) => {
         return '';
 
       case 'removed':
-        return `Property '${node}' was removed\n`;
+        return `\nProperty '${node}' was removed`;
 
       case 'added': {
         const val = prepareValue(item.value);
-        return `Property '${node}' was added with value: ${val}\n`; }
+        return `\nProperty '${node}' was added with value: ${val}`; }
 
       case 'updated': {
         const oldVal = prepareValue(item.value.oldValue);
         const newVal = prepareValue(item.value.newValue);
-        return `Property '${node}' was updated. From ${oldVal} to ${newVal}\n`; }
+        return `\nProperty '${node}' was updated. From ${oldVal} to ${newVal}`; }
 
       case 'nested':
-        return formatPlain(item.children, newPath);
+        return `\n${formatPlain(item.children, newPath)}`;
 
       default:
         throw new Error(`Unknown type: '${item.type}'!`);
     }
   }).join('');
 
-  return output;
+  return output.replace('\n', '');
 };
 
 export default formatPlain;

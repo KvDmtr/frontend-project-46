@@ -14,29 +14,34 @@ const isJson = (str) => {
   }
   return true;
 };
-
-test('json test', () => {
-  const filename1 = fixturePath('file1.json');
-  const filename2 = fixturePath('file2.json');
-  const resultName = fixturePath('result_json.txt');
-  const result = readFileSync(resultName, 'utf-8');
-  expect(parser(filename1, filename2)).toBe(result);
-});
-
-test('yaml test', () => {
-  const fileName1 = fixturePath('file1.yml');
-  const fileName2 = fixturePath('file2.yml');
-  const resultName = fixturePath('result_json.txt');
-  const result = readFileSync(resultName, 'utf-8');
-  expect(parser(fileName1, fileName2)).toBe(result);
-});
-
-test('plain test', () => {
-  const filename1 = fixturePath('file1.json');
-  const filename2 = fixturePath('file2.json');
-  const resultName = fixturePath('result_plain.txt');
-  const result = readFileSync(resultName, 'utf-8');
-  expect(parser(filename1, filename2, 'plain')).toBe(result);
+test.each([
+  {
+    fileName1: 'file1.json',
+    fileName2: 'file2.json',
+    resultName: 'result_json.txt',
+    format: 'stylish',
+  },
+  {
+    fileName1: 'file1.yml',
+    fileName2: 'file2.yml',
+    resultName: 'result_json.txt',
+  },
+  {
+    fileName1: 'file1.json',
+    fileName2: 'file2.json',
+    resultName: 'result_plain.txt',
+    format: 'plain',
+  },
+])('tests: json, yaml, plain', ({
+  fileName1,
+  fileName2,
+  resultName,
+  format,
+}) => {
+  const filePath1 = fixturePath(fileName1);
+  const filePath2 = fixturePath(fileName2);
+  const result = readFileSync(fixturePath(resultName), 'utf-8');
+  expect(parser(filePath1, filePath2, format)).toBe(result);
 });
 
 test('formatter json', () => {
