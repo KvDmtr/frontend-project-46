@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import parser from '../src/index.js';
+import genDiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,12 +41,12 @@ test.each([
   const filePath1 = fixturePath(fileName1);
   const filePath2 = fixturePath(fileName2);
   const result = readFileSync(fixturePath(resultName), 'utf-8');
-  expect(parser(filePath1, filePath2, format)).toBe(result);
+  expect(genDiff(filePath1, filePath2, format)).toEqual(result);
 });
 
 test('formatter json', () => {
   const filename1 = fixturePath('file1.json');
   const filename2 = fixturePath('file2.json');
-  const result = parser(filename1, filename2, 'json');
+  const result = genDiff(filename1, filename2, 'json');
   expect(isJson(result)).toBeTruthy();
 });
